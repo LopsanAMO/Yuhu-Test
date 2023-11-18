@@ -25,5 +25,5 @@ urlpatterns = [
     ),
     path('', include('yuhutest.apps.users.urls')),
     path('', include('yuhutest.apps.tasks.urls')),
-    re_path(r"^$", RedirectView.as_view(url=reverse_lazy("api-root"), permanent=False)),
+    re_path(r"^$", RedirectView.as_view(url=reverse_lazy("users"), permanent=False)),
     ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
