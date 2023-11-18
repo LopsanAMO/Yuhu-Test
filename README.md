@@ -24,7 +24,6 @@ DB_USER=postgres
 DB_PASS=postgres
 SECRET_KEY=AUniqueSecretKey
 ALLOWED_HOSTS=*
-SLACK_API_KEY=xxx-xxxxxxx
 ```
 
 Start the dev server for local development:
