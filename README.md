@@ -1,6 +1,6 @@
 # Yuhu Test
 
-Cornershop Test. Check out the project's [documentation](http://3.131.60.191/api/doc/).
+yuhu Test. Check out the project's [documentation](http://3.131.60.191/api/doc/).
 
 Postman Collection - [collection](https://api.postman.com/collections/1986978-f887f8c2-9d7c-4edc-ba22-c426d29988a6?access_key=PMAT-01HFGKVF25TBA6P485XB17Y64E)
 # Prerequisites
