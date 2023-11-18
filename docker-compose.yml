@@ -1,0 +1,46 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:12-alpine
+    environment:
+      - POSTGRES_DB=${DB_NAME}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+  web:
+    restart: always
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: DockerfileLocal
+    command: >
+      bash -c "ls && ./app/manage.py migrate &&
+                     ./app/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+  redis:
+    image: redis:6-alpine
+    volumes:
+      - redis-data:/data
+  celery:
+    restart: always
+    build:
+      context: .
+    user: root
+    command: >
+      celery -A yuhutest.celery worker -B -l info --loglevel=DEBUG --without-gossip --without-mingle --without-heartbeat -Ofair --pool=solo
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+      - redis
+      - web
+
+volumes:
+  postgres123-data: {}
+  redis-data: {}
+  static_files: {}
