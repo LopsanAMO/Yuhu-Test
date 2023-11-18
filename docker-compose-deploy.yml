@@ -58,15 +58,6 @@ services:
     volumes:
       - static-data:/vol/static
 
-  documentation:
-    restart: always
-    build: ./
-    command: "mkdocs serve"
-    volumes:
-      - ./:/code
-    ports:
-      - "8001:8001"
-
 volumes:
   postgres-data:
   static-data:

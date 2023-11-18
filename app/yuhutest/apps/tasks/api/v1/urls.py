@@ -4,7 +4,7 @@ from yuhutest.apps.tasks.api.v1.views import TaskModelViewSet
 
 
 task_router = DefaultRouter()
-task_router.register(r'task', TaskModelViewSet, basename='tasks')
+task_router.register(r'', TaskModelViewSet, basename='tasks')
 
 
 urlpatterns = [
